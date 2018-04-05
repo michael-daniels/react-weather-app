@@ -17,8 +17,7 @@ const TodaysWeather = (props) => {
         <div className="row">
           <div className="col-md-6 current-weather-window">
 
-            Weather: {props.props.weather[0].main}<br />
-            Temp: {((props.props.main.temp * (9/5)) - 459.67).toFixed(0)} Degrees<br />
+            <h1>{((props.props.main.temp * (9/5)) - 459.67).toFixed(0)} ° and {props.props.weather[0].main}</h1><br />
             High: {((props.props.main.temp_max * (9/5)) - 459.67).toFixed(0)} Degrees<br />
             Low: {((props.props.main.temp_min * (9/5)) - 459.67).toFixed(0)} Degrees<br />
             Humidity: {props.props.main.humidity}%<br />
