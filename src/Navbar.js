@@ -5,7 +5,7 @@ const Navbar = (props) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-          <a className="navbar-brand" href="localhost:3000">The Weather</a>
+          <a className="navbar-brand" href="localhost:3000">WeatherBee</a>
 
           <div className="collapse navbar-collapse" id="navbarColor01">
             <ul className="navbar-nav mr-auto">

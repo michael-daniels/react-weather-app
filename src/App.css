@@ -6,8 +6,19 @@
 .todays-weather-div {
   min-height: 300px;
   background-color: #f2f2f2;
+  text-align: center;
 }
 .five-day-weather-div {
   min-height: 300px;
   background-color: #f7f7f7;
+}
+.current-weather-window {
+  text-align: center;
+}
+.main-map {
+  max-width: 100%;
+  border-radius:5px;
+}
+.col-md-6 {
+  border:0px gray solid;
 }

@@ -7,7 +7,7 @@ import FiveDayWeather from './FiveDayWeather'
 
 class App extends Component {
 
-  state = {zip:'85043'}
+  state = {zip:''}
 
   render() {
     console.log(process.env.REACT_APP_API_KEY)
