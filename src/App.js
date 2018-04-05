@@ -10,17 +10,35 @@ class App extends Component {
   state = {zip:''}
 
   render() {
-    console.log(process.env.REACT_APP_API_KEY)
     let getWeather = (zip) => {
+
+      let tempState = [];
+
       fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&appid=${process.env.REACT_APP_API_KEY}`)
         .then((res) => {
             res.json()
             .then((data) => {
-              this.setState(data)
-              console.log('app state:', this.state)
+              tempState.push(data)
+            })
+            .then(() => {
+              this.setState({zip:zip, state:tempState})
             })
           }
         )
+      fetch(`http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&appid=${process.env.REACT_APP_API_KEY}`)
+        .then((res) => {
+          res.json()
+          .then((data) => {
+            tempState.push(data)
+          })
+          .then(() => {
+            this.setState({zip:zip, state:tempState})
+          })
+        })
+
+
+        console.log('tempState after fetches:', tempState)
+
     }
 
     return (
@@ -28,6 +46,7 @@ class App extends Component {
         <Navbar props={getWeather} />
         <TodaysWeather props={this.state}/>
         <FiveDayWeather props={this.state}/>
+        {console.log(this.state.state)}
       </div>
     );
   }

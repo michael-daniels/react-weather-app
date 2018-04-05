@@ -1,8 +1,7 @@
 import React from 'react'
 
 const TodaysWeather = (props) => {
-  console.log(props.props.name)
-  if (!props.props.name) {
+  if (!props.props.state) {
     return (
       <div className="todays-weather-div">
         Enter a Zip Code
@@ -12,15 +11,14 @@ const TodaysWeather = (props) => {
     return (
       <div className="todays-weather-div">
         <div className="">
-        <h2>Current Weather in {props.props.name}</h2>
+        <h2>Current Weather in {props.props.state[0].name}</h2>
         </div>
         <div className="row">
           <div className="col-md-6 current-weather-window">
-
-            <h1>{((props.props.main.temp * (9/5)) - 459.67).toFixed(0)} ° and {props.props.weather[0].main}</h1><br />
-            High: {((props.props.main.temp_max * (9/5)) - 459.67).toFixed(0)} Degrees<br />
-            Low: {((props.props.main.temp_min * (9/5)) - 459.67).toFixed(0)} Degrees<br />
-            Humidity: {props.props.main.humidity}%<br />
+            <h1>{((props.props.state[0].main.temp * (9/5)) - 459.67).toFixed(0)}° and {props.props.state[0].weather[0].main}</h1><br />
+            High: {((props.props.state[0].main.temp_max * (9/5)) - 459.67).toFixed(0)} Degrees<br />
+            Low: {((props.props.state[0].main.temp_min * (9/5)) - 459.67).toFixed(0)} Degrees<br />
+            Humidity: {props.props.state[0].main.humidity}%<br />
           </div>
 
           <div className="col-md-6 current-weather-window">
